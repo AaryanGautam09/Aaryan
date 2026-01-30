@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+
+{% block title %}Contact Us{% endblock %}
+
+{% block content %}
+<div style="background: linear-gradient(135deg, #f5f7fa, #c3cfe2); padding: 50px 20px; min-height: 80vh; display: flex; justify-content: center; align-items: center;">
+
+    <div style="background-color: #fff; padding: 40px; border-radius: 15px; box-shadow: 0 8px 20px rgba(0,0,0,0.2); max-width: 500px; width: 100%;">
+        <h1 style="color: #4CAF50; text-align: center; margin-bottom: 20px; font-size: 32px;">Get in Touch</h1>
+        <p style="text-align: center; font-size: 16px; margin-bottom: 30px;">We would love to hear from you! Send us a message and we'll get back to you as soon as possible.</p>
+
+        <form method="post" style="display: flex; flex-direction: column;">
+            {% csrf_token %}
+
+            <label for="name" style="font-weight: bold; margin-bottom: 5px;">Name</label>
+            <input type="text" name="name" id="name" required 
+                   style="padding: 12px; margin-bottom: 20px; border-radius: 8px; border: 1px solid #ccc; font-size: 14px; transition: all 0.3s;"
+                   onfocus="this.style.borderColor='#4CAF50'; this.style.boxShadow='0 0 5px rgba(76,175,80,0.5)';" 
+                   onblur="this.style.borderColor='#ccc'; this.style.boxShadow='none';">
+
+            <label for="email" style="font-weight: bold; margin-bottom: 5px;">Email</label>
+            <input type="email" name="email" id="email" required 
+                   style="padding: 12px; margin-bottom: 20px; border-radius: 8px; border: 1px solid #ccc; font-size: 14px; transition: all 0.3s;"
+                   onfocus="this.style.borderColor='#4CAF50'; this.style.boxShadow='0 0 5px rgba(76,175,80,0.5)';" 
+                   onblur="this.style.borderColor='#ccc'; this.style.boxShadow='none';">
+
+            <label for="message" style="font-weight: bold; margin-bottom: 5px;">Message</label>
+            <textarea name="message" id="message" rows="5" required
+                      style="padding: 12px; margin-bottom: 25px; border-radius: 8px; border: 1px solid #ccc; font-size: 14px; transition: all 0.3s;"
+                      onfocus="this.style.borderColor='#4CAF50'; this.style.boxShadow='0 0 5px rgba(76,175,80,0.5)';" 
+                      onblur="this.style.borderColor='#ccc'; this.style.boxShadow='none';"></textarea>
+
+            <button type="submit" 
+                    style="background-color: #4CAF50; color: white; padding: 12px; font-size: 16px; border: none; border-radius: 8px; cursor: pointer; transition: all 0.3s;"
+                    onmouseover="this.style.backgroundColor='#45a049';"
+                    onmouseout="this.style.backgroundColor='#4CAF50';">
+                Send Message
+            </button>
+        </form>
+    </div>
+</div>
+{% endblock %}
